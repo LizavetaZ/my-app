@@ -10,7 +10,6 @@ function App() {
             <Hello title = {"this is my friends"}/>
             <Accordion title = {"меню"} collapsed = {true}/>
             <Accordion title = {"Неменю"} collapsed = {false}/>
-            <p>title</p>
             <Rating value = {0}/>
             <Rating value = {1}/>
             <Rating value = {2}/>
