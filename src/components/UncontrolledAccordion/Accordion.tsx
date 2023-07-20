@@ -5,7 +5,7 @@ type AccordionPropsType = {
 }
 
 
-function UncontrolledAccordion(props: AccordionPropsType) {
+export function UncontrolledAccordion(props: AccordionPropsType) {
     let [collapsed, setCollapsed] = useState(false)
     console.log(collapsed)
      return (
@@ -44,7 +44,6 @@ function AccordionBody() {
     );
 }
 
-export default UncontrolledAccordion;
 
 
 /*function Accordion2(props: AccordionPropsType) {
