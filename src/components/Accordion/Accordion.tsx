@@ -1,63 +1,49 @@
 import React from "react";
+type ItemType = {
+    title: string
+    value:any
+}
 
 type AccordionPropsType = {
     title: string,
     collapsed: boolean
-    onChange: (collapsed: boolean) => void
+    onChange: () => void
+    items:ItemType[]
+    onClick:(value: any) => void
 }
 
 
 export function Accordion(props: AccordionPropsType) {
      return (
         <>
-            <AccordionTitle title = {props.title} onChange = {props.onChange} collapsed={props.collapsed}/>
-            {props.collapsed === false && <AccordionBody/>}
-            {/*{!props.collapsed  && <AccordionBody/>}*/}
+            <AccordionTitle title = {props.title} onChange = {props.onChange}/>
+            {!props.collapsed && <AccordionBody items = {props.items} onClick={props.onClick}/>}
         </>
 
     );
 }
-
-/*function Accordion2(props: AccordionPropsType) {
-    if (props.collapsed) {
-        return (
-            <>
-                <AccordionTitle title = {props.title}/>
-            </>
-
-        );
-    }
-    else   return (
-        <>
-            <AccordionTitle title = {props.title}/>
-            <AccordionBody/>
-        </>
-
-    );
-}*/
-
 type AccordionTitlePropsType = {
     title:string
-    collapsed: boolean
-    onChange: (collapsed: boolean) => void
+    onChange: () => void
 }
 
 export function AccordionTitle(props: AccordionTitlePropsType) {
     console.log("AccordionTitle")
     return (
-        <h3 onClick={(e) => {props.onChange(props.collapsed)}}>{props.title}</h3>
+        <h3 onClick={(e) => {props.onChange()}}>{props.title}</h3>
     );
 }
 
-export function AccordionBody() {
+export type AccordionBodyPropsType = {
+    items:ItemType[]
+    onClick:(value: any) => void
+}
+
+export function AccordionBody(props: AccordionBodyPropsType) {
     console.log("AccordionBody")
     return (
         <ul>
-            <li>star</li>
-    <li>star</li>
-    <li>star</li>
-    <li>star</li>
-    <li>star</li>
+            {props.items.map((el, index)=> <li onClick={() => {props.onClick(el.value)}} key={index}>{el.title}</li>)}
         </ul>
     );
 }
