@@ -1,13 +1,16 @@
 import React, {useState} from "react";
 import s from "./OnOff.module.css"
+import {AccordionMainBody} from "../Accordion/Accordion";
 
 type PropsType = {
     on: boolean
     onChange: (on: boolean) => void
 }
 
+export const ControlledOnOff = React.memo(ControlledOnOffComponent)
 
-export function ControlledOnOff(props: PropsType) {
+
+export function ControlledOnOffComponent(props: PropsType) {
 
     // let on = false
     // console.log("UncontrolledOnOff rendering")

@@ -1,4 +1,6 @@
 import React from "react";
+import exp from "constants";
+import {UncontrolledOnOffComponent} from "../OnOff/UncontrolledOnOff";
 
 export type RatingValueType = 0 | 1 | 2 | 3 | 4 | 5
 
@@ -8,7 +10,9 @@ type RatingPropsType = {
     onClick:( value: 0 | 1 | 2 | 3 | 4 | 5) => void
 }
 
-function Rating(props: RatingPropsType) {
+export const Rating = React.memo(RatingMain)
+
+export function RatingMain(props: RatingPropsType) {
     return (
         <div>
             <Star selected = {props.value > 0} onClick = {props.onClick} value = {1}/>
@@ -25,7 +29,9 @@ type StarPropsType = {
     onClick:(value:RatingValueType)=> void
 }
 
-function Star(props: StarPropsType) {
+export const Star = React.memo(StarMain)
+
+function StarMain(props: StarPropsType) {
     console.log("Star")
     return <span onClick={() => {props.onClick(props.value)}}>{ props.selected ? <b>star </b> : "star "}</span>
 

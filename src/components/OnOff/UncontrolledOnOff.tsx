@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import s from "./OnOff.module.css"
+import {ControlledOnOffComponent} from "./ControlledOnOff";
 
 type PropsType = {
     // on: boolean
@@ -16,7 +17,9 @@ type PropsType = {
 //     )
 // }
 
-export function UncontrolledOnOff(props: PropsType) {
+export const UncontrolledOnOff = React.memo(UncontrolledOnOffComponent)
+
+export function UncontrolledOnOffComponent(props: PropsType) {
 
     // let on = false
     console.log("UncontrolledOnOff rendering")

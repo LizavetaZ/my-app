@@ -1,11 +1,10 @@
 import React, {useState} from 'react';
 import './App.css';
-import {Accordion} from "./components/Accordion/Accordion";
 import Rating, {RatingValueType} from './components/Rating/Rating';
 import {UncontrolledOnOff} from "./components/OnOff/UncontrolledOnOff";
 import {UncontrolledAccordion} from "./components/UncontrolledAccordion/Accordion";
 import {UncontrolledRating} from "./components/UncontrolledRating/Rating";
-import {ControlledOnOff} from "./components/OnOff/ControlledOnOff";
+import {Accordion} from "./components/Accordion/Accordion";
 
 function App() {
 
@@ -13,12 +12,22 @@ function App() {
     let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(true)
     let [switchOn, setswitchOn] = useState<boolean>(false)
 
+    const handleItemClick = (value: any) => {
+        // Ваш код обработки клика на элемент аккордеона
+    };
+
     return (
         <div className={"App"}>
             {/*<Hello title = {"this is APP component"}/>*/}
             {/*<Hello title = {"this is my friends"}/>*/}
             {/*<Accordion title = {"меню"} collapsed = {true}/>*/}
-            <Accordion title = {"Неменю"} collapsed = {accordionCollapsed} onChange = {setAccordionCollapsed}/>
+            <Accordion
+                title="Неменю"
+                collapsed={accordionCollapsed}
+                onChange={() => setAccordionCollapsed(!accordionCollapsed)}
+                items={[]}
+                onClick={handleItemClick}
+            />
                         {/*<p>title</p>*/}
             <Rating value = {ratingValue} onClick = {setRatingValue}/>
 
