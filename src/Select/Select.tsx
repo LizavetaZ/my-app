@@ -4,6 +4,7 @@ import s from './Select.module.css'
 type ItemType = {
     title: string
     value: any
+    citizensCount?: number
 }
 
 type SelectPropsType = {
